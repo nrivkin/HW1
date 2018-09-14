@@ -1,0 +1,31 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x11ac020 .scope module, "demorgan" "demorgan" 2 1;
+ .timescale 0 0;
+L_0x11de5a0 .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x11de650 .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x11de710 .functor AND 1, L_0x11de5a0, L_0x11de650, C4<1>, C4<1>;
+L_0x11de7f0 .functor OR 1, L_0x11de5a0, L_0x11de650, C4<0>, C4<0>;
+L_0x11de850 .functor OR 1, C4<z>, C4<z>, C4<0>, C4<0>;
+L_0x11de980 .functor NOT 1, L_0x11de850, C4<0>, C4<0>, C4<0>;
+L_0x11dea30 .functor AND 1, C4<z>, C4<z>, C4<1>, C4<1>;
+L_0x11dea90 .functor NOT 1, L_0x11dea30, C4<0>, C4<0>, C4<0>;
+v0x11ac110_0 .net "A", 0 0, C4<z>; 0 drivers
+v0x11ddf00_0 .net "AandB", 0 0, L_0x11dea30; 1 drivers
+v0x11ddfa0_0 .net "AorB", 0 0, L_0x11de850; 1 drivers
+v0x11de040_0 .net "B", 0 0, C4<z>; 0 drivers
+v0x11de0f0_0 .net "nA", 0 0, L_0x11de5a0; 1 drivers
+v0x11de190_0 .net "nAandB", 0 0, L_0x11dea90; 1 drivers
+v0x11de270_0 .net "nAandnB", 0 0, L_0x11de710; 1 drivers
+v0x11de310_0 .net "nAorB", 0 0, L_0x11de980; 1 drivers
+v0x11de400_0 .net "nAornB", 0 0, L_0x11de7f0; 1 drivers
+v0x11de4a0_0 .net "nB", 0 0, L_0x11de650; 1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "hw1.v";
